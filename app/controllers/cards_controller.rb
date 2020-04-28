@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show, :edit, :update, :destroy]
+  before_action :set_card, only: [:show, :edit, :update, :destroy, :move]
 
   # GET /cards
   # GET /cards.json
@@ -61,14 +61,19 @@ class CardsController < ApplicationController
     end
   end
 
+  def move
+    @card.update(card_params)
+    render action: :show
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_card
-      @card = Card.find(params[:id])
-    end
+  def set_card
+    @card = Card.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def card_params
-      params.require(:card).permit(:list_id, :name, :position)
-    end
+  # Only allow a list of trusted parameters through.
+  def card_params
+    params.require(:card).permit(:list_id, :name, :position)
+  end
 end
