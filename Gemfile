@@ -71,3 +71,4 @@ gem 'sidekiq', '~> 6.0', '>= 6.0.3'
 gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
 gem 'whenever', require: false
 gem 'webpacker', '~> 4.0.1'
+gem 'acts_as_list'
